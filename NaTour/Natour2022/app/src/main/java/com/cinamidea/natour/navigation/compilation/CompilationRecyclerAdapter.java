@@ -13,13 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cinamidea.natour.navigation.compilation.views.CompilationRoutesActivity;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.RoutesCompilation;
 import com.cinamidea.natour.navigation.compilation.contracts.CompilationRecyclerContract;
 import com.cinamidea.natour.navigation.compilation.models.CompilationRecyclerModel;
 import com.cinamidea.natour.navigation.compilation.presenters.CompilationRecyclerPresenter;
+import com.cinamidea.natour.navigation.compilation.views.CompilationRoutesActivity;
 import com.cinamidea.natour.utilities.UserType;
 
 import java.util.ArrayList;
@@ -67,7 +67,6 @@ public class CompilationRecyclerAdapter extends RecyclerView.Adapter<Compilation
 
 
             if (is_insert) {
-                MainActivity.mFirebaseAnalytics.logEvent("SELECT_COMPILATION", null);
                 UserType user_type = new UserType(context);
                 String id_token = user_type.getUserType() + user_type.getIdToken();
 

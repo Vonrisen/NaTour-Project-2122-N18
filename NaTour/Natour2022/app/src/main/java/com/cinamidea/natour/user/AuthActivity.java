@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.cinamidea.natour.R;
 import com.cinamidea.natour.user.signin.SigninFragment;
 import com.cinamidea.natour.user.signup.views.SignupFragment;
-import com.cinamidea.natour.R;
 
 public class AuthActivity extends CustomAuthActivity {
 

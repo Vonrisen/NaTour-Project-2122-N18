@@ -8,11 +8,11 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.cinamidea.natour.MainActivity;
+import com.cinamidea.natour.R;
 import com.cinamidea.natour.user.signup.contracts.ConfirmSignUpContract;
 import com.cinamidea.natour.user.signup.models.ConfirmSignUpModel;
 import com.cinamidea.natour.user.signup.presenters.ConfirmSignUpPresenter;
-import com.cinamidea.natour.MainActivity;
-import com.cinamidea.natour.R;
 import com.cinamidea.natour.utilities.UserType;
 
 import www.sanju.motiontoast.MotionToast;

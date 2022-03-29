@@ -13,11 +13,11 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cinamidea.natour.entities.RouteFilters;
-import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.entities.RouteFilters;
+import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.navigation.search.SearchContract;
 import com.cinamidea.natour.navigation.search.SearchModel;
 import com.cinamidea.natour.navigation.search.SearchPresenter;

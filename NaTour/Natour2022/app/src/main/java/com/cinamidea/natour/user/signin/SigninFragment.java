@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.cinamidea.natour.R;
 import com.cinamidea.natour.navigation.main.views.HomeActivity;
 import com.cinamidea.natour.user.CustomAuthFragment;
-import com.cinamidea.natour.R;
 import com.cinamidea.natour.user.resetpassword.views.ResetCRActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -129,6 +130,7 @@ public class SigninFragment extends CustomAuthFragment implements SignInContract
 
     @Override
     public void displayError(String message) {
+
         googlesignin_client.signOut();
 
         getActivity().runOnUiThread(()-> {
@@ -171,6 +173,8 @@ public class SigninFragment extends CustomAuthFragment implements SignInContract
             if (result.getResultCode() == Activity.RESULT_OK) {
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
                 handleSignInResult(task);
+            }else{
+                progressbar.setVisibility(View.GONE);
             }
         });
 

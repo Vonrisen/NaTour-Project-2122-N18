@@ -22,6 +22,9 @@ public class HomeActivityModel implements HomeActivityContract.Model {
 
     @Override
     public void putProfileImage(String imageBase64, String current_username, String id_token,byte[] image_as_byte_array, OnFinishedListener listener) {
+
+        current_username.replaceAll(" ","");
+
         Request request = UsersHTTP.putProfileImage(imageBase64,current_username,id_token);
 
         client.newCall(request).enqueue(new Callback() {

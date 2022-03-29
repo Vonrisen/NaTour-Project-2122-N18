@@ -1,10 +1,7 @@
 package com.cinamidea.natour.navigation.compilation.models;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.entities.RoutesCompilation;
 import com.cinamidea.natour.navigation.compilation.contracts.CreateCompilationContract;
 import com.cinamidea.natour.utilities.http.RoutesHTTP;
@@ -29,7 +26,6 @@ public class CreateCompilationModel implements CreateCompilationContract.Model {
 
         Request request = RoutesHTTP.createRoutesCompilation(routesCompilation, id_token);
 
-        MainActivity.mFirebaseAnalytics.logEvent("SAVING_COMPILATION", new Bundle());
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -42,7 +38,6 @@ public class CreateCompilationModel implements CreateCompilationContract.Model {
                 String response_body = response.body().string();
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent("COMPILATION_SAVED", new Bundle());
                         listener.onSuccess();
                         break;
                     case 400:

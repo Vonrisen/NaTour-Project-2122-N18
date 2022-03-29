@@ -36,7 +36,6 @@ public class HomeModel implements HomeContract.Model{
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                Log.d("HOME", "Loading routes..");
                 int response_code = response.code();
                 String response_body = response.body().string();
                 switch (response_code) {

@@ -17,11 +17,10 @@ import com.cinamidea.natour.utilities.UserType;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.firebase.analytics.FirebaseAnalytics;
+
 
 public class MainActivity extends AppCompatActivity implements MainContract.View{
 
-    public static FirebaseAnalytics mFirebaseAnalytics;
     private Button button_signin, button_signup;
     private Animation anim_scale_up, anim_scale_down;
     private final Handler handler = new Handler();
@@ -51,15 +50,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-
-        mFirebaseAnalytics.logEvent("Welcome_To_Natour", new Bundle());
-
         user_type = new UserType(this);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .requestIdToken(("556927589955-pahgt8na4l8de0985mvlc9gugfltbkef.apps.googleusercontent.com"))
                 .build();
+
 
         this.googlesignin_client = GoogleSignIn.getClient(this, gso);
 

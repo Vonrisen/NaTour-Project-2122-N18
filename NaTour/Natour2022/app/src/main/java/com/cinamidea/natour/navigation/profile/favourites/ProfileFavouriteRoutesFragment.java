@@ -15,10 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.navigation.main.views.HomeActivity;
 import com.cinamidea.natour.utilities.UserType;
 

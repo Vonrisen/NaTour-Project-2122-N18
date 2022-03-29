@@ -1,21 +1,21 @@
 package com.cinamidea.natour.navigation.compilation.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.cinamidea.natour.navigation.compilation.models.CompilationModel;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.RoutesCompilation;
 import com.cinamidea.natour.navigation.compilation.CompilationRecyclerAdapter;
 import com.cinamidea.natour.navigation.compilation.contracts.CompilationContract;
+import com.cinamidea.natour.navigation.compilation.models.CompilationModel;
 import com.cinamidea.natour.navigation.compilation.presenters.CompilationPresenter;
 import com.cinamidea.natour.utilities.UserType;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -53,7 +53,6 @@ public class CompilationActivity extends AppCompatActivity implements Compilatio
 
         button_add.setOnClickListener(v -> {
 
-            MainActivity.mFirebaseAnalytics.logEvent("CREATE_COMPILATION_FORM", null);
             startActivity(new Intent(this, CreateCompilationActivity.class));
 
         });

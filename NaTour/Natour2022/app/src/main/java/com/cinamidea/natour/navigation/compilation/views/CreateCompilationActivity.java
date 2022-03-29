@@ -11,12 +11,12 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
-import com.cinamidea.natour.navigation.compilation.contracts.CreateCompilationContract;
-import com.cinamidea.natour.navigation.compilation.models.CreateCompilationModel;
-import com.cinamidea.natour.navigation.compilation.presenters.CreateCompilationPresenter;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.RoutesCompilation;
+import com.cinamidea.natour.navigation.compilation.contracts.CreateCompilationContract;
+import com.cinamidea.natour.navigation.compilation.models.CreateCompilationModel;
+import com.cinamidea.natour.navigation.compilation.presenters.CreateCompilationPresenter;
 import com.cinamidea.natour.utilities.UserType;
 
 import www.sanju.motiontoast.MotionToast;

@@ -25,12 +25,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.bumptech.glide.Glide;
-import com.cinamidea.natour.map.models.CreatePathActivityModel;
-import com.cinamidea.natour.map.presenters.CreatePathActivityPresenter;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.Route;
 import com.cinamidea.natour.map.contracts.CreatePathActivityContract;
+import com.cinamidea.natour.map.models.CreatePathActivityModel;
+import com.cinamidea.natour.map.presenters.CreatePathActivityPresenter;
 import com.cinamidea.natour.navigation.main.views.HomeActivity;
 import com.cinamidea.natour.utilities.UserType;
 import com.google.android.gms.maps.model.LatLng;
@@ -72,7 +72,6 @@ public class CreatePathActivity extends AppCompatActivity implements CreatePathA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        MainActivity.mFirebaseAnalytics.logEvent("SHOW_ROUTE_FORM", new Bundle());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_path);

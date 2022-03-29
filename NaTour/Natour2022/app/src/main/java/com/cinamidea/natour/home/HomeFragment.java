@@ -16,10 +16,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.utilities.UserType;
 
 import java.util.ArrayList;
@@ -145,7 +145,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
 
     @Override
     public void loadRoutes(ArrayList<Route> routes, ArrayList<Route> fav_routes) {
-        MainActivity.mFirebaseAnalytics.logEvent("LOADING_ALL_ROUTES", null);
         getActivity().runOnUiThread(() -> {
             progressBar.setVisibility(View.GONE);
             recyclerViewAdapter = new RecyclerViewAdapter(getActivity(), routes, fav_routes, false);

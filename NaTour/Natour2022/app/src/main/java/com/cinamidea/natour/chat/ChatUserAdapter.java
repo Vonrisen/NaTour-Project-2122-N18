@@ -37,7 +37,7 @@ public class ChatUserAdapter extends ArrayAdapter<User> {
         nome.setText(current_user.getId());
 
         ImageView immagine_profilo = listView.findViewById(R.id.img_list_users);
-        Glide.with(getContext()).load(current_user.getImage()).into(immagine_profilo);
+        Glide.with(getContext()).load(current_user.getImage()).placeholder(R.drawable.natour_avatar).into(immagine_profilo);
 
         return listView;
     }

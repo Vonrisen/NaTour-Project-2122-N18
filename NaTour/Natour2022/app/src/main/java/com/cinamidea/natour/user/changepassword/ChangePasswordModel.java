@@ -1,11 +1,9 @@
 package com.cinamidea.natour.user.changepassword;
 
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.UserType;
 import com.cinamidea.natour.utilities.http.AuthenticationHTTP;
@@ -27,7 +25,6 @@ public class ChangePasswordModel implements ChangePasswordContract.Model{
 
     @Override
     public void changePassword(UserType user_type, String old_password, String new_password, OnFinishedListener listener) {
-        MainActivity.mFirebaseAnalytics.logEvent("CHANGING_PASSWORD", new Bundle());
         Request request = AuthenticationHTTP.changePassword(user_type.getUsername(), old_password, new_password, user_type.getAccessToken());
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -42,8 +39,6 @@ public class ChangePasswordModel implements ChangePasswordContract.Model{
                 String response_body = response.body().string();
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent("PASSWORD_CHANGED", new Bundle());
-                        MainActivity.mFirebaseAnalytics.logEvent("LOGGING_OUT", new Bundle());
                         Log.d("COGNITO", "Password changed successfully");
                         listener.onSuccess();
 

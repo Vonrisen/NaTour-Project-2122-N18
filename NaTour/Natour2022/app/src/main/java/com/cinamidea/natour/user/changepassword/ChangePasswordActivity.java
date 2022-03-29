@@ -67,7 +67,6 @@ public class ChangePasswordActivity extends AppCompatActivity implements ChangeP
                     MotionToast.LONG_DURATION,
                     ResourcesCompat.getFont(getApplicationContext(),R.font.helvetica_regular));
         });
-        MainActivity.mFirebaseAnalytics.logEvent("EMPTYING_SHARED_PREFS", new Bundle());
         new UserType(this).clear();
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

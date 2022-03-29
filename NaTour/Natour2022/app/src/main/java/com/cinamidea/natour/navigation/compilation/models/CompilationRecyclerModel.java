@@ -2,7 +2,6 @@ package com.cinamidea.natour.navigation.compilation.models;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.navigation.compilation.contracts.CompilationRecyclerContract;
 import com.cinamidea.natour.utilities.http.RoutesHTTP;
 
@@ -26,7 +25,6 @@ public class CompilationRecyclerModel implements CompilationRecyclerContract.Mod
 
 
         Request request = RoutesHTTP.insertRouteIntoCompilation(username, route_name, compilation_id, id_token);
-        MainActivity.mFirebaseAnalytics.logEvent("ADD_ROUTE_TO_COMPILATION", null);
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -40,7 +38,6 @@ public class CompilationRecyclerModel implements CompilationRecyclerContract.Mod
                 String response_body = response.body().string();
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent("ROUTE_ADDED", null);
                         listener.onSuccess();
                         break;
                     case 400:

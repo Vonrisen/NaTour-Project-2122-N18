@@ -1,5 +1,7 @@
 package com.cinamidea.natour.admin;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.cinamidea.natour.utilities.UserType;
@@ -36,6 +38,7 @@ public class AdminModel implements AdminContract.Model {
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     int response_code = response.code();
                     String message = response.body().string();
+                    Log.e("ciao",message);
                     if(response_code == 200)
                         listener.onSuccess(message);
                     else if(response_code == 400)

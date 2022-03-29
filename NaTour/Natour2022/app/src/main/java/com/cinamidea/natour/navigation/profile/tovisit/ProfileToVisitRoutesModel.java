@@ -1,11 +1,9 @@
 package com.cinamidea.natour.navigation.profile.tovisit;
 
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.entities.Route;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.http.RoutesHTTP;
@@ -44,7 +42,6 @@ public class ProfileToVisitRoutesModel implements ProfileToVisitRoutesContract.M
                 String response_body = response.body().string();
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent("SHOW_TOVISIT", new Bundle());
                         ArrayList<Route> to_visit_routes = ResponseDeserializer.jsonToRoutesList(response_body);
                         listener.onSuccess(to_visit_routes);
                         break;

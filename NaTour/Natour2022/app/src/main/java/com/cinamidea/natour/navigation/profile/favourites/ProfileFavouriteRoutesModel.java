@@ -1,11 +1,9 @@
 package com.cinamidea.natour.navigation.profile.favourites;
 
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.entities.Route;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.http.RoutesHTTP;
@@ -41,7 +39,6 @@ public class ProfileFavouriteRoutesModel implements ProfileFavouriteRoutesContra
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
-                MainActivity.mFirebaseAnalytics.logEvent("SHOW_FAVOURITES", new Bundle());
                 int response_code = response.code();
                 String response_body = response.body().string();
                 switch (response_code) {

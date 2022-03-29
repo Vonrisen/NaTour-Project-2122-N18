@@ -1,11 +1,9 @@
 package com.cinamidea.natour.map.models;
 
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.entities.Route;
 import com.cinamidea.natour.map.contracts.CreatePathActivityContract;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
@@ -39,13 +37,11 @@ public class CreatePathActivityModel implements CreatePathActivityContract.Model
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
-                MainActivity.mFirebaseAnalytics.logEvent("SAVING_ROUTE", new Bundle());
                 int response_code = response.code();
                 String response_body = response.body().string();
                 Log.e("ciao",response_body);
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent("ROUTE_SAVED", new Bundle());
                         listener.onSuccess(response_body);
                         break;
                     case 400:

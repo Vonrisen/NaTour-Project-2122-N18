@@ -20,9 +20,8 @@ import androidx.annotation.Nullable;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 
-import com.cinamidea.natour.MainActivity;
-import com.cinamidea.natour.map.views.CreatePathActivity;
 import com.cinamidea.natour.R;
+import com.cinamidea.natour.map.views.CreatePathActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -78,7 +77,6 @@ public class AddPathFragment extends Fragment {
                 if(point != null)
                 Log.e("ciao","Map click "+String.valueOf(i++));
                 if (markers.size() == 0 && check_long_press_map_click == 0) {
-                    MainActivity.mFirebaseAnalytics.logEvent("START_MARKER_ADDED", new Bundle());
                     Marker start_marker = add_path_map.addMarker(new MarkerOptions().position(point).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                     markers.add(start_marker);
                     path.add(start_marker.getPosition());
@@ -87,7 +85,6 @@ public class AddPathFragment extends Fragment {
                     check_long_press_map_click = 1;
 
                 } else if (check_long_press_map_click == 1) {
-                    MainActivity.mFirebaseAnalytics.logEvent("MARKER_ADDED", new Bundle());
                     //IL secondo marker il colore rosso
                     Marker marker = add_path_map.addMarker(new MarkerOptions().position(point).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
                     markers.add(marker);
@@ -111,7 +108,6 @@ public class AddPathFragment extends Fragment {
 
                     Bundle bundle = new Bundle();
                     bundle.putString("opt_param","param");
-                    MainActivity.mFirebaseAnalytics.logEvent("FIN_MARKER_ADDED", bundle);
 
                     Marker end_marker = add_path_map.addMarker(new MarkerOptions()
                             .position(latLng)

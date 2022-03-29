@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -24,7 +23,6 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.chat.HomeChatActivity;
 import com.cinamidea.natour.entities.Route;
@@ -228,7 +226,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View bottomSheetView = LayoutInflater.from(context).inflate(
                 R.layout.post_options, options_container);
         if (is_tovisit_fragment)
-            ((Button) bottomSheetView.findViewById(R.id.post_addtovisit)).setText("Prova");
+            ((Button) bottomSheetView.findViewById(R.id.post_addtovisit)).setText("Remove From ToVisit");
 
         bottomSheetView.findViewById(R.id.post_addtovisit).setOnClickListener(view1 -> {
             bottomSheetDialog.dismiss();

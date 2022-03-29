@@ -1,7 +1,7 @@
 package com.cinamidea.natour.navigation.search;
 
-import com.cinamidea.natour.entities.RouteFilters;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.entities.RouteFilters;
 
 import java.util.ArrayList;
 

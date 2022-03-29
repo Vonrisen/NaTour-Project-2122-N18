@@ -28,20 +28,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.cinamidea.natour.MainActivity;
+import com.cinamidea.natour.R;
 import com.cinamidea.natour.admin.AdminActivity;
+import com.cinamidea.natour.chat.HomeChatActivity;
 import com.cinamidea.natour.home.HomeFragment;
+import com.cinamidea.natour.map.MapActivity;
 import com.cinamidea.natour.map.views.AllPathsFragment;
 import com.cinamidea.natour.navigation.compilation.views.CompilationActivity;
+import com.cinamidea.natour.navigation.main.contracts.HomeActivityContract;
+import com.cinamidea.natour.navigation.main.models.HomeActivityModel;
+import com.cinamidea.natour.navigation.main.presenters.HomeActivityPresenter;
 import com.cinamidea.natour.navigation.search.views.GeoSearchActivity;
 import com.cinamidea.natour.navigation.search.views.SearchActivity;
 import com.cinamidea.natour.user.changepassword.ChangePasswordActivity;
-import com.cinamidea.natour.MainActivity;
-import com.cinamidea.natour.R;
-import com.cinamidea.natour.navigation.main.models.HomeActivityModel;
-import com.cinamidea.natour.chat.HomeChatActivity;
-import com.cinamidea.natour.map.MapActivity;
-import com.cinamidea.natour.navigation.main.contracts.HomeActivityContract;
-import com.cinamidea.natour.navigation.main.presenters.HomeActivityPresenter;
 import com.cinamidea.natour.utilities.UserType;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -277,7 +277,6 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityContr
 
     private void openMenu() {
 
-        MainActivity.mFirebaseAnalytics.logEvent("OPEN_PROFILE_OPTS", new Bundle());
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialogTheme);
         View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(
                 R.layout.menu_bottom_layout,
@@ -295,7 +294,6 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityContr
             logout();
         });
         bottomSheetView.findViewById(R.id.menuLayout_savedPaths).setOnClickListener(view -> {
-            MainActivity.mFirebaseAnalytics.logEvent("OPEN_USER_COMPILATIONS", new Bundle());
             bottomSheetDialog.dismiss();
             startActivity(new Intent(this, CompilationActivity.class));
 

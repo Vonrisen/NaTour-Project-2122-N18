@@ -23,12 +23,12 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
-import com.cinamidea.natour.map.contracts.AllPathFragmentContract;
-import com.cinamidea.natour.map.models.AllPathFragmentModel;
-import com.cinamidea.natour.map.presenters.AllPathFragmentPresenter;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.map.contracts.AllPathFragmentContract;
+import com.cinamidea.natour.map.models.AllPathFragmentModel;
+import com.cinamidea.natour.map.presenters.AllPathFragmentPresenter;
 import com.cinamidea.natour.utilities.UserType;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.cinamidea.natour.user.resetpassword.ResetCRFragmentSwitcher;
 import com.cinamidea.natour.R;
+import com.cinamidea.natour.user.resetpassword.ResetCRFragmentSwitcher;
 
 public class ResetCRUserFragment extends Fragment {
 

@@ -7,11 +7,11 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.cinamidea.natour.R;
 import com.cinamidea.natour.user.resetpassword.ResetCRContract;
 import com.cinamidea.natour.user.resetpassword.ResetCRFragmentSwitcher;
 import com.cinamidea.natour.user.resetpassword.ResetCRModel;
 import com.cinamidea.natour.user.resetpassword.ResetCRPresenter;
-import com.cinamidea.natour.R;
 
 import www.sanju.motiontoast.MotionToast;
 import www.sanju.motiontoast.MotionToastStyle;

@@ -4,8 +4,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.map.contracts.AllPathFragmentContract;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.map.contracts.AllPathFragmentContract;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.http.RoutesHTTP;
 

@@ -9,8 +9,8 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 import com.chaos.view.PinView;
-import com.cinamidea.natour.user.resetpassword.ResetCRFragmentSwitcher;
 import com.cinamidea.natour.R;
+import com.cinamidea.natour.user.resetpassword.ResetCRFragmentSwitcher;
 
 public class ResetCRCodeFragment extends Fragment {
 

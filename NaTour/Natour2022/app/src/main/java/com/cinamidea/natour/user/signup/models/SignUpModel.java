@@ -1,11 +1,9 @@
 package com.cinamidea.natour.user.signup.models;
 
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.user.signup.contracts.SignUpContract;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.http.AuthenticationHTTP;
@@ -29,9 +27,6 @@ public class SignUpModel implements SignUpContract.Model {
     public void signUp(String username, String email, String password, OnFinishListener listener) {
 
         Request request = AuthenticationHTTP.signUp(username, email, password);
-
-        Bundle params = new Bundle();
-        MainActivity.mFirebaseAnalytics.logEvent("REGISTERING_USER", params);
 
         client.newCall(request).enqueue(new Callback() {
             @Override

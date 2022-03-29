@@ -110,12 +110,8 @@ public class GeoSearchActivity extends AppCompatActivity implements SearchContra
 
         persistentSearchView.setOnSearchConfirmedListener((searchView, query) -> {
 
-            MainActivity.mFirebaseAnalytics.logEvent("LOCATION_SPECIFIED_" + persistentSearchView.getInputQuery(), null);
-
             if (!persistentSearchView.isInputQueryEmpty()) {
                 try {
-
-                    MainActivity.mFirebaseAnalytics.logEvent("GEOCODING_PROCESSING", null);
 
                     addresses = geocoder.getFromLocationName(persistentSearchView.getInputQuery(), 1);
 
@@ -126,22 +122,18 @@ public class GeoSearchActivity extends AppCompatActivity implements SearchContra
                         Bundle coordparams = new Bundle();
                         coordparams.putDouble("latitude", latLng.latitude);
                         coordparams.putDouble("longitude", latLng.longitude);
-                        MainActivity.mFirebaseAnalytics.logEvent("GEOCODING_DONE", coordparams);
 
                         RouteFilters routeFilters = new RouteFilters("", tokenizedList(difficulties),
                                 min_duration, is_disability, latLng, range, tokenizedList(tags));
 
                         Bundle range_param = new Bundle();
                         range_param.putInt("range", range);
-                        MainActivity.mFirebaseAnalytics.logEvent("RANGE_SPECIFIED", range_param);
 
                         Bundle mindur_param = new Bundle();
                         mindur_param.putInt("min_duration", min_duration);
-                        MainActivity.mFirebaseAnalytics.logEvent("MINIMUM_DURATION_SPECIFIED", mindur_param);
 
                         Bundle tags_param = new Bundle();
                         tags_param.putString("tags", tokenizedList(tags));
-                        MainActivity.mFirebaseAnalytics.logEvent("TAGS_SPECIFIED", tags_param);
 
                         UserType user_type = new UserType(GeoSearchActivity.this);
                         presenter.searchButtonClicked(user_type.getUsername(), routeFilters, user_type.getUserType() + user_type.getIdToken());
@@ -176,7 +168,6 @@ public class GeoSearchActivity extends AppCompatActivity implements SearchContra
 
         persistentSearchView.setOnRightBtnClickListener(view -> {
 
-            MainActivity.mFirebaseAnalytics.logEvent("SHOW_FILTERS", new Bundle());
             dialog.show();
 
             EditText addtag = dialog.findViewById(R.id.activitySearch_addtag);

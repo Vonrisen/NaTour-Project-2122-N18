@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.cinamidea.natour.map.views.AllPathsFragment;
 import com.cinamidea.natour.R;
+import com.cinamidea.natour.map.views.AllPathsFragment;
 
 public class MapActivity extends AppCompatActivity {
 

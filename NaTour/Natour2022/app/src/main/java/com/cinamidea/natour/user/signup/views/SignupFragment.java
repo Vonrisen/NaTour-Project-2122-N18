@@ -11,11 +11,10 @@ import android.widget.ProgressBar;
 
 import androidx.core.content.res.ResourcesCompat;
 
-import com.cinamidea.natour.MainActivity;
-import com.cinamidea.natour.user.CustomAuthFragment;
-import com.cinamidea.natour.user.signup.models.SignUpModel;
 import com.cinamidea.natour.R;
+import com.cinamidea.natour.user.CustomAuthFragment;
 import com.cinamidea.natour.user.signup.contracts.SignUpContract;
+import com.cinamidea.natour.user.signup.models.SignUpModel;
 import com.cinamidea.natour.user.signup.presenters.SignUpPresenter;
 
 import www.sanju.motiontoast.MotionToast;
@@ -90,7 +89,6 @@ public class SignupFragment extends CustomAuthFragment implements SignUpContract
     @Override
     public void signUpSuccess() {
         getActivity().runOnUiThread(() -> progressbar.setVisibility(View.GONE));
-        MainActivity.mFirebaseAnalytics.logEvent("CODE_SENT", new Bundle());
         Intent intent = new Intent(getActivity(), ConfirmSignupActivity.class);
         intent.putExtra("username", username);
         getActivity().startActivity(intent);

@@ -53,7 +53,7 @@ public class AdminActivity extends AppCompatActivity implements AdminContract.Vi
         runOnUiThread(() -> {
             MotionToast.Companion.createColorToast(this, "",
                     message,
-                    MotionToastStyle.ERROR,
+                    MotionToastStyle.SUCCESS,
                     MotionToast.GRAVITY_BOTTOM,
                     MotionToast.LONG_DURATION,
                     ResourcesCompat.getFont(this, R.font.helvetica_regular));

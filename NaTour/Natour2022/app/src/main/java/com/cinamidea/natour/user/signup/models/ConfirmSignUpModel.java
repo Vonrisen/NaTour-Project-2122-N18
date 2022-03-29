@@ -1,11 +1,9 @@
 package com.cinamidea.natour.user.signup.models;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.user.signup.contracts.ConfirmSignUpContract;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.http.AuthenticationHTTP;
@@ -30,7 +28,6 @@ public class ConfirmSignUpModel implements ConfirmSignUpContract.Model {
     public void confirmSignUp(String username, String confirmation_code, OnFinishListener listener) {
             Request request = AuthenticationHTTP.confirmSignUp(username, confirmation_code);
         Bundle params = new Bundle();
-        MainActivity.mFirebaseAnalytics.logEvent("VERIFYING_CODE", params);
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -41,7 +38,6 @@ public class ConfirmSignUpModel implements ConfirmSignUpContract.Model {
                     int response_code = response.code();
                     String message = response.body().string();
                     if(response_code == 200) {
-                        MainActivity.mFirebaseAnalytics.logEvent("SUCCESSFUL_REGISTRATION", params);
                         listener.onSuccess(message);
                     }
                     else

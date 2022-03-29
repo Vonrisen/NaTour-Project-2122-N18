@@ -9,12 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -32,6 +33,11 @@ public class SearchMapFragment extends Fragment {
         public void onMapReady(GoogleMap googleMap) {
             map = googleMap;
             map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(41.9028,12.4964))
+                    .zoom(6)
+                    .build();
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             map.setOnMapClickListener(latLng -> {
                 if (markerArrayList.size() == 0) {
                     Marker marker = map.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
@@ -66,8 +72,6 @@ public class SearchMapFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-        MainActivity.mFirebaseAnalytics.logEvent("VISUALIZE_MAP", new Bundle());
 
         super.onViewCreated(view, savedInstanceState);
         SupportMapFragment mapFragment =

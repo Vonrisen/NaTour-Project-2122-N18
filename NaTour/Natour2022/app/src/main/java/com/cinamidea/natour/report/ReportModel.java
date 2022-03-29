@@ -1,11 +1,7 @@
 package com.cinamidea.natour.report;
 
-import android.os.Bundle;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.entities.Report;
 import com.cinamidea.natour.utilities.http.ReportHTTP;
 
@@ -27,10 +23,7 @@ public class ReportModel implements ReportContract.Model{
     @Override
     public void sendReport(String id_token, Report report, OnFinishListener listener) {
 
-        MainActivity.mFirebaseAnalytics.logEvent("SAVING_REPORT", new Bundle());
         if(checkReportValidity(report.getTitle(), report.getDescription())) {
-            MainActivity.mFirebaseAnalytics.logEvent("VALID_REPORT", new Bundle());
-            MainActivity.mFirebaseAnalytics.logEvent("SAVING_REPORT", new Bundle());
             Request request = ReportHTTP.insertReport(report, id_token);
 
             client.newCall(request).enqueue(new Callback() {
@@ -40,7 +33,6 @@ public class ReportModel implements ReportContract.Model{
                 }
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                    MainActivity.mFirebaseAnalytics.logEvent("REPORT_SAVED", new Bundle());
                     int response_code = response.code();
                     String message = response.body().string();
                     if(response_code == 200)

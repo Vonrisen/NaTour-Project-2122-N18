@@ -1,23 +1,22 @@
 package com.cinamidea.natour.navigation.compilation.views;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ProgressBar;
-
-import com.cinamidea.natour.navigation.compilation.contracts.CompilationRoutesContract;
-import com.cinamidea.natour.navigation.compilation.models.CompilationRoutesModel;
-import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.navigation.compilation.contracts.CompilationRoutesContract;
+import com.cinamidea.natour.navigation.compilation.models.CompilationRoutesModel;
 import com.cinamidea.natour.navigation.compilation.presenters.CompilationRoutesPresenter;
+import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.utilities.UserType;
 
 import java.util.ArrayList;

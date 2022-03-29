@@ -1,7 +1,7 @@
 package com.cinamidea.natour.navigation.compilation.presenters;
 
-import com.cinamidea.natour.navigation.compilation.contracts.CompilationRoutesContract;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.navigation.compilation.contracts.CompilationRoutesContract;
 
 import java.util.ArrayList;
 

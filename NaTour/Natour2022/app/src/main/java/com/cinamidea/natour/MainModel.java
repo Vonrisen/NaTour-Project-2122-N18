@@ -1,7 +1,6 @@
 package com.cinamidea.natour;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -34,7 +33,6 @@ public class MainModel implements MainContract.Model{
 
     @Override
     public void cognitoSilentSignIn(UserType user_type, MainContract.Model.OnFinishListener listener) {
-        MainActivity.mFirebaseAnalytics.logEvent("COGNITO_SILENT_LOGIN", new Bundle());
         Request request = AuthenticationHTTP.tokenLogin(user_type.getIdToken());
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -48,10 +46,8 @@ public class MainModel implements MainContract.Model{
                 String message = response.body().string();
                 if (response_code == 200) {
                     //Token is valid
-                    MainActivity.mFirebaseAnalytics.logEvent("LOGIN_SUCCESSFUL", new Bundle());
                     listener.onSuccess();
                 } else { //Token is expired
-                    MainActivity.mFirebaseAnalytics.logEvent("ID_TOKEN_EXPIRED", new Bundle());
                     if(message.contains("expired"))
                         refreshCognitoIdAndAccessTokens(user_type, listener);
                     else //Invalid token
@@ -66,7 +62,6 @@ public class MainModel implements MainContract.Model{
 
     public void refreshCognitoIdAndAccessTokens(UserType user_type, MainContract.Model.OnFinishListener listener) {
 
-        MainActivity.mFirebaseAnalytics.logEvent("REFRESHING_TOKENS", new Bundle());
         Request request = AuthenticationHTTP.refreshToken(user_type.getUsername(), user_type.getRefreshToken());
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -79,11 +74,8 @@ public class MainModel implements MainContract.Model{
                 int response_code = response.code();
                 String message = response.body().string();
                 if (response_code == 200) {
-                    MainActivity.mFirebaseAnalytics.logEvent("TOKENS_REFRESHED", new Bundle());
                     //Saving refreshed id and access tokens
                     Tokens tokens = new Gson().fromJson(ResponseDeserializer.removeQuotesAndUnescape(message), Tokens.class);
-                    MainActivity.mFirebaseAnalytics.logEvent("SAVING_ID_TOKEN", new Bundle());
-                    MainActivity.mFirebaseAnalytics.logEvent("SAVING_ACCESS_TOKEN", new Bundle());
                     user_type.setIdToken(tokens.getId_token());
                     user_type.setAccessToken(tokens.getAccess_token());
                     //Trying to sign in again with refreshed id_token

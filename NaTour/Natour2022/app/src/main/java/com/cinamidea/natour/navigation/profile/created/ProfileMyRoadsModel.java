@@ -1,11 +1,9 @@
 package com.cinamidea.natour.navigation.profile.created;
 
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.http.RoutesHTTP;
 
@@ -41,7 +39,6 @@ public class ProfileMyRoadsModel implements ProfileMyRoadsContract.Model{
                 String response_body = response.body().string();
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent("SHOW_MY_ROUTES", new Bundle());
                         listener.onSuccess(ResponseDeserializer.jsonToRoutesList(response_body));
                         break;
                     case 401:

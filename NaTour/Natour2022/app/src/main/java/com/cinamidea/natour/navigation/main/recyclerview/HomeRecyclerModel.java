@@ -1,10 +1,7 @@
 package com.cinamidea.natour.navigation.main.recyclerview;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 
-import com.cinamidea.natour.MainActivity;
 import com.cinamidea.natour.utilities.ResponseDeserializer;
 import com.cinamidea.natour.utilities.http.RoutesHTTP;
 
@@ -41,7 +38,6 @@ public class HomeRecyclerModel implements HomeRecyclerContract.Model {
                 String response_body = response.body().string();
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent(route_name+"_LIKED", new Bundle());
                         listener.onSuccess(response_body);
                         break;
                     case 400:
@@ -79,7 +75,6 @@ public class HomeRecyclerModel implements HomeRecyclerContract.Model {
                 String response_body = response.body().string();
                 switch (response_code) {
                     case 200:
-                        MainActivity.mFirebaseAnalytics.logEvent(route_name+"_DEL_LIKE", new Bundle());
                         listener.onSuccess(response_body);
                         break;
                     case 400:
@@ -112,7 +107,6 @@ public class HomeRecyclerModel implements HomeRecyclerContract.Model {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
-                MainActivity.mFirebaseAnalytics.logEvent(route_name+"_TOVISIT", new Bundle());
                 int response_code = response.code();
                 String response_body = response.body().string();
                 if(response_code == 200)
@@ -136,7 +130,6 @@ public class HomeRecyclerModel implements HomeRecyclerContract.Model {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
-                MainActivity.mFirebaseAnalytics.logEvent(route_name+"_DEL_TOVISIT", new Bundle());
                 int response_code = response.code();
                 String response_body = response.body().string();
                 if(response_code == 200)

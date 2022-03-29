@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 import com.cinamidea.natour.R;
 import com.cinamidea.natour.entities.Route;
+import com.cinamidea.natour.navigation.main.recyclerview.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
