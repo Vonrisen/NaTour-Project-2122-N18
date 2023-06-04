@@ -10,7 +10,7 @@ public class MySqlDB {
 public static Connection getConnection() {
     try {
 
-        String URL = "jdbc:mysql://natour-db.c8r5sn2iekjw.eu-central-1.rds.amazonaws.com/natour";
+        String URL = "";
         Properties info = new Properties( );
         info.put( "user", "admin" );
         info.put( "password", "cinamidea2022" );

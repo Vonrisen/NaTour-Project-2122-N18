@@ -19,7 +19,7 @@ public class GoogleAuth {
 
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
                 // Specify the CLIENT_ID of the app that accesses the backend:
-                .setAudience(Collections.singletonList("556927589955-pahgt8na4l8de0985mvlc9gugfltbkef.apps.googleusercontent.com"))
+                .setAudience(Collections.singletonList(""))
 
                 // Or, if multiple clients access the backend:
                 //.setAudience(Arrays.asList(CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3))
@@ -35,7 +35,7 @@ public class GoogleAuth {
 
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
                 // Specify the CLIENT_ID of the app that accesses the backend:
-                .setAudience(Collections.singletonList("556927589955-pahgt8na4l8de0985mvlc9gugfltbkef.apps.googleusercontent.com"))
+                .setAudience(Collections.singletonList(""))
                 // Or, if multiple clients access the backend:
                 //.setAudience(Arrays.asList(CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3))
                 .build();
