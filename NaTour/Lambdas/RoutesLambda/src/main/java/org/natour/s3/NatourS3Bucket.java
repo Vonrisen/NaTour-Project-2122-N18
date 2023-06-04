@@ -15,9 +15,9 @@ import java.io.ByteArrayInputStream;
 
 public class NatourS3Bucket {
 
-    private final String access_key = "AKIA55M7FGC4MEFJCSDW";
+    private final String access_key = "";
 
-    private final String secret_key = "tBOlwIlvQoLcKsBs/FoZsU5hY/n1Jy1G6Y2bjn5l";
+    private final String secret_key = "";
 
     private final AWSCredentials credentials = new BasicAWSCredentials(access_key, secret_key);
 

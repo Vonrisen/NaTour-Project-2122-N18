@@ -8,7 +8,7 @@ import com.auth0.jwt.interfaces.RSAKeyProvider;
 
 public class CognitoTokens {
 
-    private static final String POOL_ID = "eu-central-1_omsSo0qxM";
+    private static final String POOL_ID = "";
     private  JWTVerifier jwtVerifier;
 
     public CognitoTokens(){
